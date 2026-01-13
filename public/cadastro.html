@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+
+<body>
+
+    <header>Cadastro de Usuário</header>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="cadastro.html">Cadastro</a>
+        <a href="consulta.html">Consulta</a>
+    </nav>
+
+    <div class="container">
+        <h2>Preencha seus dados</h2>
+
+        <form id="cadForm">
+            <input type="text" name="nome" placeholder="Nome completo" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="text" name="cidade" placeholder="Cidade" required>
+            <input type="text" name="estado" placeholder="Estado" required>
+            <input type="number" name="idade" placeholder="Idade" required>
+            <input type="text" name="filmeFavorito" placeholder="Filme favorito" required>
+
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("cadForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = Object.fromEntries(new FormData(e.target));
+
+            await fetch("http://localhost:8080/api/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            });
+
+            alert("Cadastro efetuado!");
+            e.target.reset();
+        });
+    </script>
+
+</body>
+
+</html>

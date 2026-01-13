@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #121212;
+    color: #eee;
+}
+
+
+header {
+    background: #1f1f1f;
+    padding: 25px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+    border-bottom: 3px solid #e50914;
+}
+
+
+nav {
+    background: #181818;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background: #e50914;
+    color: #fff;
+    border-radius: 5px;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #0006;
+}
+
+
+h2 {
+    border-left: 5px solid #e50914;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.movie-card {
+    background: #222;
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    background: #2a2a2a;
+}
+
+.movie-card img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: none;
+    background: #2b2b2b;
+    color: #eee;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+button {
+    background: #e50914;
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #b00710;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    background: #e50914;
+    padding: 12px;
+    color: #fff;
+    font-weight: bold;
+}
+
+table td {
+    padding: 10px;
+    background: #1f1f1f;
+}
+
+table tr:nth-child(even) td {
+    background: #262626;
+}
+
+table tr:hover td {
+    background: #333;
+}
+
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}

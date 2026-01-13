@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+
+<body>
+
+    <header>Consulta de Cadastros</header>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="cadastro.html">Cadastro</a>
+        <a href="consulta.html">Consulta</a>
+    </nav>
+
+    <div class="container">
+        <h2>Usuários cadastrados</h2>
+
+        <table border="1" width="100%" style="background:#222;">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Cidade</th>
+                    <th>Estado</th>
+                    <th>Idade</th>
+                    <th>Filme Favorito</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <script>
+        async function loadUsers() {
+            const res = await fetch("http://localhost:8080/api/users");
+            const users = await res.json();
+
+            const tbody = document.getElementById("tableBody");
+
+            tbody.innerHTML = users.map(u => `
+        <tr>
+            <td>${u.nome}</td>
+            <td>${u.email}</td>
+            <td>${u.cidade}</td>
+            <td>${u.estado}</td>
+            <td>${u.idade}</td>
+            <td>${u.filmeFavorito}</td>
+        </tr>
+    `).join("");
+        }
+
+        loadUsers();
+    </script>
+
+</body>
+
+</html>
